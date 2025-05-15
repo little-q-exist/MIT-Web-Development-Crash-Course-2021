@@ -26,4 +26,29 @@ const drawSnake = (gameBoard) => {
     }
 }
 
+const onSnake = (position) => {
+    // let isonSnake = false;
+    // for (const snakeposition in snakeBody) {
+    //     if (equalPositions(position, snakeposition)) {
+    //         isonSnake = true;
+    //     }
+    // }
+    // return isonSnake;
 
+    for (let i = 0; i < snakeBody.length; i++) {
+        if (equalPositions(snakeBody[i], position)) {
+            return true;
+        }
+    }
+    return false;
+}
+
+const equalPositions = (pos1, pos2) => {
+    return pos1.x === pos2.x && pos1.y === pos2.y;
+}
+
+const expandSnake = (amount) => {
+    for (let i = 0; i < amount; i++) {
+        snakeBody.push({ ...snakeBody[snakeBody.length - 1] });
+    }
+}
