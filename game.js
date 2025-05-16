@@ -18,8 +18,11 @@ window.requestAnimationFrame(main);
 const update = () => {
     console.log("Rendering");
     updateSnake();
+    updateFood();
 }
 
 const draw = () => {
+    gameBoard.innerHTML = "";
     drawSnake(gameBoard);
+    drawFood(gameBoard);
 }
