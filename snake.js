@@ -52,3 +52,22 @@ const expandSnake = (amount) => {
         snakeBody.push({ ...snakeBody[snakeBody.length - 1] });
     }
 }
+
+const isGameOver = () => {
+    // snake out bound or overlapping itself.
+    return isSnakeOutOfBounds() || isSnakeIntersectSelf();
+}
+
+const isSnakeOutOfBounds = () => {
+    return isOutOfBound(snakeBody[0]);
+}
+
+const isSnakeIntersectSelf = () => {
+    const snakeHead = snakeBody[0];
+    for (let i = 1; i < snakeBody.length; i++) {
+        if (equalPositions(snakeBody[i], snakeHead)) {
+            return true;
+        }
+    }
+    return false;
+}
